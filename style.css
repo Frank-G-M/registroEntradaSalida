@@ -1,0 +1,90 @@
+body{
+    background: #02CEFF;
+}
+
+form{
+    background: #fff;
+    width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    margin: 100px auto;
+    box-shadow: 0 0 10px 6px #000000;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;  
+    margin: 20px;
+}
+
+.interacciones{
+    display: flex;
+    justify-content: space-around;  
+    margin-top: 40px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-around;  
+}
+
+.registro{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.barra{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f1f1e7;
+    border-radius: 8px;
+    border: 2px solid #000000;
+}
+
+.oculta{
+    display: none;
+}
+
+.barra p{
+    margin: 0;
+}
+
+ul{
+    margin-top: 15px;
+    padding: 0;
+}
+
+li{
+    display: flex;                
+    justify-content: space-around; 
+    align-items: center;
+    list-style: none;
+    background: #e0f7ff;
+    margin: 8px auto;
+    padding: 10px;
+    border-radius: 6px;
+    width: 90%;
+    border-radius: 8px;
+    border: 2px solid #000000;
+}
+
+.tituloH{
+    display: flex;        
+    justify-content: space-around; 
+    background: #ffffff;
+    margin: 8px auto;
+    border-radius: 6px;
+    width: 90%;
+    border-radius: 8px;
+    border: 2px solid #000000;
+}
