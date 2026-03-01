@@ -1,24 +1,23 @@
 <?php
 include("conexion.php");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $name = trim($_POST['name']);
     $document = trim($_POST['document']);
     $email = trim($_POST['email']);
     $phone = trim($_POST['phone']);
     $password = trim($_POST['password']);
-
+    $rol = $_POST['rol'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (Name, Document, Email, Phone, Password)
-            VALUES ('$name', '$document', '$email', '$phone', '$hashedPassword')";
-
-    if ($conexion->query($sql) === TRUE) {
+    $sql = "INSERT INTO users (Name, Document, Email, Phone, Password, Rol)
+            VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("ssssss", $name, $document, $email, $phone, $hashedPassword, $rol);
+    if ($stmt->execute()) {
         echo "Usuario registrado correctamente";
     } else {
-        echo "Error: " . $conexion->error;
+        echo "Error: " . $stmt->error;
     }
+    $stmt->close();
 }
 ?>
 <!DOCTYPE html>
@@ -48,8 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <label>Contraseña</label>
         <input type="password" id="password" name="password" required>
-    </div>
 
+        <label>Rol</label>
+<select name="rol" required>
+    <option value="">Seleccione un rol</option>
+    <option value="Medico">Médico</option>
+    <option value="Enfermero">Enfermero</option>
+    <option value="Administrativo">Administrativo</option>
+</select>
+    </div>
     <div class="interacciones">
         <a href="index.php">Login</a><br><br>
         <button type="submit">Sign Up</button>

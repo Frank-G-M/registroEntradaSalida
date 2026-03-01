@@ -7,8 +7,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-
-// Verificar que no exista jornada activa
 $verificar = "SELECT * FROM horario 
               WHERE ID_User = ? 
               AND Hora_Salida IS NULL";
